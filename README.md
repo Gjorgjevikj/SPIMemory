@@ -64,6 +64,9 @@ SPIFlash flash(33);
   - M25P40
 - Adesto
   - AT25SF041
+- Macronix 
+  - MX25L4005
+  - MX25L8005
 
 ##### Should work with (Similar enough to the ones actually tested with)
 - Winbond (All SPI Flash chips)
