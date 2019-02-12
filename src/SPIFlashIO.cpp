@@ -562,6 +562,21 @@
        Serial.println("No Chip size defined by user. Automated identification initiated.");
      #endif
      //Identify capacity
+	 if(_chip.manufacturerID == MXIC_MANID)
+	 {
+		 switch(_chip.capacityID)
+		 {
+			 case 0x13: // MX25L4005
+				_chip.capacity = MB(4); 
+				break;
+			 case 0x14: // MX25L8005
+				_chip.capacity = MB(8); 
+				break;
+			default:
+				_troubleshoot(UNKNOWNCHIP); //Error code for unidentified capacity
+		 }
+	 }
+	 else
      for (uint8_t j = 0; j < sizeof(_capID); j++) {
        if (_chip.capacityID == _capID[j]) {
          _chip.capacity = (_memSize[j]);
